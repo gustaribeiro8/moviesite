@@ -19,6 +19,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('staticpages.urls')),
-    path('movies/', include('movies.urls')), # adicionar esta linha
+    path('movies/', include('movies.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')), # adicione esta linha
     path('admin/', admin.site.urls),
 ]
