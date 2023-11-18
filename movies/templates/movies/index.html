@@ -9,16 +9,17 @@
     <a href="{% url 'movies:create' %}">Adicionar Novo Filme</a>
   </p>
 </section>
-{% if movie_list %}
+{% if last_movies %}
+<hr>
+<h2>Últimos vistos</h2>
 <section class="lista-de-cards">
-  {% for movie in movie_list %}
-  <article class="card">
-    <a href="{% url 'movies:detail' movie.id %}"> <!-- modifique esta linha -->
-        <img src="{{ movie.poster_url }}" alt="Poster do filme {{ movie.name }}" />
-    </a>
-    <p>{{ movie.name }} ({{ movie.release_year }})</p>
-  </article>
-  {% endfor %}
+    {% for last_movie in last_movies %}
+    <article class="small-card">
+        <a href="{% url 'movies:detail' last_movie.id %}"><img src="{{ last_movie.poster_url }}"
+                alt="Poster do filme {{ last_movie.name}}"></a>
+    </article>
+    {% endfor %}
 </section>
 {% endif %}
-{% endblock %}
+
+{% endblock content %}
